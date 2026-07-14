@@ -1,0 +1,45 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environnements virtuels
+venv/
+env/
+.venv/
+ENV/
+
+# --- Bases de données locales ---
+*.db
+*.sqlite
+*.sqlite3
+
+# --- Config / secrets ---
+config.json
+.env
+*.key
+*.pem
+
+# --- Logs ---
+*.log
+
+# --- Éditeurs / IDE ---
+.vscode/
+.idea/
+*.swp
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Tests / coverage ---
+.pytest_cache/
+.coverage
+htmlcov/
