@@ -276,8 +276,8 @@ class GestionnaireTheme:
 # ════════════════════════════════════════════════════════════════
 
 # Instance unique du gestionnaire de thème, importée par toutes les
-# vues de l'application. Démarre en mode sombre par défaut.
-theme = GestionnaireTheme(mode_initial="sombre")
+# vues de l'application. Démarre en mode clair par défaut.
+theme = GestionnaireTheme(mode_initial="clair")
 
 
 # ════════════════════════════════════════════════════════════════
