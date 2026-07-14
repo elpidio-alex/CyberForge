@@ -268,8 +268,8 @@ class HistoryView(tk.Frame):
         Retourne :
             None
         """
-        utilisateur = self.controleur.utilisateur_connecte
-
+        utilisateur = self.controleur.utilisateur_courant
+        
         if utilisateur is None:
             self._entrees = []
         else:

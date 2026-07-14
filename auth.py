@@ -58,7 +58,7 @@ def inscrire_utilisateur(nom, prenom, email, mot_de_passe):
 
     # Hacher le mot de passe avec bcrypt avant stockage
     # bcrypt.gensalt() génère un sel aléatoire pour renforcer la sécurité
-    hash_mdp = bcrypt.hashpw(mot_de_passe.encode("utf-8"), bcrypt.gensalt())
+    hash_mdp = bcrypt.hashpw(mot_de_passe.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
     # Insérer l'utilisateur en base avec les données nettoyées
     creer_utilisateur(
@@ -100,7 +100,7 @@ def connecter_utilisateur(email, mot_de_passe):
 
     # Comparer le mot de passe saisi avec le hash stocké en base
     # bcrypt.checkpw() gère la comparaison sécurisée
-    if not bcrypt.checkpw(mot_de_passe.encode("utf-8"), user["mot_de_passe"]):
+    if not bcrypt.checkpw(mot_de_passe.encode("utf-8"), user["mot_de_passe"].encode("utf-8")):
         return False, "Mot de passe incorrect."
 
     # Connexion réussie — retourner l'objet utilisateur complet
@@ -187,11 +187,11 @@ def modifier_mot_de_passe(user_id, ancien_mdp, nouveau_mdp, confirmation):
         return False, "Utilisateur introuvable."
 
     # Vérifier que l'ancien mot de passe saisi correspond au hash en base
-    if not bcrypt.checkpw(ancien_mdp.encode("utf-8"), row["mot_de_passe"]):
+    if not bcrypt.checkpw(ancien_mdp.encode("utf-8"), row["mot_de_passe"].encode("utf-8")):
         return False, "Ancien mot de passe incorrect."
 
     # Hacher le nouveau mot de passe avant stockage
-    nouveau_hash = bcrypt.hashpw(nouveau_mdp.encode("utf-8"), bcrypt.gensalt())
+    nouveau_hash = bcrypt.hashpw(nouveau_mdp.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
     # Mettre à jour le hash en base de données
     mettre_a_jour_mot_de_passe(user_id, nouveau_hash)

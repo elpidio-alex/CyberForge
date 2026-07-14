@@ -117,13 +117,13 @@ COULEURS_CRITICITE = {
 # SECTION 5 — POLICES (communes aux deux thèmes)
 # ════════════════════════════════════════════════════════════════
 
-POLICE_BASE = "Segoe UI"
+POLICE_BASE = "Times New Roman"
 
 POLICE_TITRE       = (POLICE_BASE, 22, "bold")
 POLICE_SOUS_TITRE  = (POLICE_BASE, 14, "bold")
 POLICE_TEXTE       = (POLICE_BASE, 11, "normal")
 POLICE_TEXTE_GRAS  = (POLICE_BASE, 11, "bold")
-POLICE_PETIT       = (POLICE_BASE, 9, "normal")
+POLICE_PETIT       = (POLICE_BASE, 9,  "normal")
 POLICE_BOUTON      = (POLICE_BASE, 11, "bold")
 POLICE_SIDEBAR     = (POLICE_BASE, 12, "normal")
 POLICE_CHIFFRE_CLE = (POLICE_BASE, 28, "bold")

@@ -1,7 +1,7 @@
 from gui.app import CyberForgeApp
+from db import initialiser_bd
 
 if __name__ == "__main__":
-    # Instanciation et démarrage de la boucle principale Tkinter
-    # mainloop() bloque jusqu'à la fermeture de la fenêtre
+    initialiser_bd()  # Crée les tables si elles n'existent pas encore
     app = CyberForgeApp()
     app.mainloop()

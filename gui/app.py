@@ -15,6 +15,7 @@
 ════════════════════════════════════════════════════════════════
 """
 
+import os
 import tkinter as tk
 from tkinter import ttk
 
@@ -47,7 +48,8 @@ class CyberForgeApp(tk.Tk):
     def __init__(self):
         """
         Initialise la fenêtre principale, configure ses dimensions,
-        son titre, son style ttk, puis affiche la vue de connexion.
+        son titre, son icône, son style ttk, puis affiche la vue
+        de connexion.
 
         Retourne :
             None
@@ -55,8 +57,24 @@ class CyberForgeApp(tk.Tk):
         super().__init__()  # Initialisation standard de tk.Tk
 
         # ─── Configuration de la fenêtre ───
-        self.title("CyberForge — Superviseur de captures réseau")
+        self.title("CyberForge - Superviseur de captures réseau")
         self.geometry(f"{LARGEUR_FENETRE}x{HAUTEUR_FENETRE}")
+
+        # ─── Icône de la fenêtre (barre de titre + barre des tâches) ───
+        # Chemin construit relativement à ce fichier pour fonctionner
+        # peu importe le dossier depuis lequel main.py est lancé
+        chemin_icone = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "assets",
+            "icon.ico"
+        )
+        try:
+            self.iconbitmap(chemin_icone)
+        except Exception:
+            # Si le fichier .ico est absent ou invalide, l'application
+            # continue de fonctionner sans icône plutôt que de planter
+            pass
+
         self.minsize(1024, 700)  # Taille minimale pour garder une UI lisible
 
         # ─── État global de l'application ───

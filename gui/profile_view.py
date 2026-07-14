@@ -86,7 +86,7 @@ class ProfileView(tk.Frame):
         Retourne :
             None
         """
-        utilisateur = self.controleur.utilisateur_connecte
+        utilisateur = self.controleur.utilisateur_courant
 
         # Zone scrollable principale
         cadre_externe = tk.Frame(self, bg=theme.get("bg_principal"))
@@ -207,7 +207,7 @@ class ProfileView(tk.Frame):
         Retourne :
             None
         """
-        utilisateur = self.controleur.utilisateur_connecte
+        utilisateur = self.controleur.utilisateur_courant
         if not utilisateur:
             return
 
@@ -298,7 +298,7 @@ class ProfileView(tk.Frame):
         Retourne :
             None
         """
-        utilisateur = self.controleur.utilisateur_connecte
+        utilisateur = self.controleur.utilisateur_courant
         if not utilisateur:
             return
 
@@ -307,7 +307,7 @@ class ProfileView(tk.Frame):
         confirmation = self._entrees_mdp["confirmation"].get()
 
         # Vérifier l'ancien mot de passe
-        if not bcrypt.checkpw(actuel.encode(), utilisateur["mot_de_passe"].encode()):
+        if not bcrypt.checkpw(actuel.encode(), utilisateur["mot_de_passe"].encode()):            
             self._afficher_retour(
                 self.label_retour_mdp,
                 "Mot de passe actuel incorrect.",
@@ -472,7 +472,7 @@ class ProfileView(tk.Frame):
         Retourne :
             None
         """
-        utilisateur = self.controleur.utilisateur_connecte
+        utilisateur = self.controleur.utilisateur_courant
         if not utilisateur:
             return
 
